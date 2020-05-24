@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Takehome.API", "Takehome.API\Takehome.API.csproj", "{E7B26E21-5792-4B93-97E9-93A6DB7BFC5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7B26E21-5792-4B93-97E9-93A6DB7BFC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7B26E21-5792-4B93-97E9-93A6DB7BFC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7B26E21-5792-4B93-97E9-93A6DB7BFC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7B26E21-5792-4B93-97E9-93A6DB7BFC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F11FDB2F-7B62-4084-9FF9-DD54493A46DD}
+	EndGlobalSection
+EndGlobal
