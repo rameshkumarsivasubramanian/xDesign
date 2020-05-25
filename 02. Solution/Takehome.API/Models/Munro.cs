@@ -4,7 +4,8 @@
     {
         None = 0,
         Munro = 1,
-        MunroTop = 2
+        MunroTop = 2,
+        Both = 3
     }
 
     public class Munro
