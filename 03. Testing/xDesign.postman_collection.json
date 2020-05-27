@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "40af1347-4ffc-431e-a358-9986cf8f8201",
+		"name": "xDesign",
+		"description": "The Takehome web api project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01. No Parameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					]
+				},
+				"description": "No parameters. Defaults to\r\n    filterBy = Both (Munro & MunroTop)\r\n    minHeight = 0 (ALL)\r\n    maxHeight = 0 (ALL)\r\n    rowsCount = 0 (ALL)\r\n    sortBy = \"Height DESC, Name\""
+			},
+			"response": []
+		},
+		{
+			"name": "02. filterBy - Munro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?filterBy=Munro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "filterBy",
+							"value": "Munro"
+						}
+					]
+				},
+				"description": "Hill_Categories = Munro"
+			},
+			"response": []
+		},
+		{
+			"name": "03. filterBy - MunroTop",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?filterBy=MunroTop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "filterBy",
+							"value": "MunroTop"
+						}
+					]
+				},
+				"description": "Hill_Categories = MunroTop"
+			},
+			"response": []
+		},
+		{
+			"name": "04. filterBy - Both",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?filterBy=Both",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "filterBy",
+							"value": "Both"
+						}
+					]
+				},
+				"description": "Hill_Categories = Munro Or MunroTop"
+			},
+			"response": []
+		},
+		{
+			"name": "05. filterBy - Unknown",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?filterBy=Unknown",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "filterBy",
+							"value": "Unknown"
+						}
+					]
+				},
+				"description": "Hill_Categories = Unknown\r\n\r\nReturns a 400-Bad Request error\r\n\"The value 'Unknown' is not valid for filterBy.\""
+			},
+			"response": []
+		},
+		{
+			"name": "06. minHeight - 1000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?minHeight=1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "minHeight",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "minHeight = 1000"
+			},
+			"response": []
+		},
+		{
+			"name": "07. minHeight - alphabetic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?minHeight=x",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "minHeight",
+							"value": "x"
+						}
+					]
+				},
+				"description": "minHeight = x\r\n\r\nReturns a 400-Bad Request error\r\n\"The value 'x' is not valid for minHeight.\""
+			},
+			"response": []
+		},
+		{
+			"name": "08. minHeight - negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?minHeight=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "minHeight",
+							"value": "-1"
+						}
+					]
+				},
+				"description": "minHeight = -1\r\n\r\nReturns a 400-Bad Request error with the message\r\n\"The field minHeight must be greater than or equal to 0.\""
+			},
+			"response": []
+		},
+		{
+			"name": "09. maxHeight - 1100",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?maxHeight=1100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "maxHeight",
+							"value": "1100"
+						}
+					]
+				},
+				"description": "maxHeight = 1100"
+			},
+			"response": []
+		},
+		{
+			"name": "10. maxHeight - alphabetic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?maxHeight=x",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "maxHeight",
+							"value": "x"
+						}
+					]
+				},
+				"description": "maxHeight = x\r\n\r\nReturns a 400-Bad Request error\r\n\"The value 'x' is not valid for maxHeight.\""
+			},
+			"response": []
+		},
+		{
+			"name": "11. maxHeight - negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?maxHeight=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "maxHeight",
+							"value": "-1"
+						}
+					]
+				},
+				"description": "maxHeight = -1\r\n\r\nReturns a 400-Bad Request error with the message\r\n\"The field maxHeight must be greater than or equal to 0.\""
+			},
+			"response": []
+		},
+		{
+			"name": "12. maxHeight - Less than minHeight",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?maxHeight=1100&minHeight=1200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "maxHeight",
+							"value": "1100"
+						},
+						{
+							"key": "minHeight",
+							"value": "1200"
+						}
+					]
+				},
+				"description": "maxHeight = 1100\r\nminHeight = 1200\r\n\r\nReturns a 400-Bad Request error with the message\r\n\"maxHeight(1100) must be greater than minHeight(1200)!\""
+			},
+			"response": []
+		},
+		{
+			"name": "13. sortBy - 1 Column Asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?sortBy=Name Asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "Name Asc"
+						}
+					]
+				},
+				"description": "sortBy = \"Name Asc\""
+			},
+			"response": []
+		},
+		{
+			"name": "14. sortBy - 1 Column Desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?sortBy=Name Desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "Name Desc"
+						}
+					]
+				},
+				"description": "sortBy = \"Name Desc\""
+			},
+			"response": []
+		},
+		{
+			"name": "15. sortBy - 1 Column (No Sort Direction)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?sortBy=Name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "Name"
+						}
+					]
+				},
+				"description": "sortBy = \"Name\"\r\nDefaults to Asc"
+			},
+			"response": []
+		},
+		{
+			"name": "16. sortBy - 1 Unknown Column",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?sortBy=Unknown",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "Unknown"
+						}
+					]
+				},
+				"description": "sortBy = \"Unknown\"\r\n\r\nReturns a 400-Bad Request error with the message\r\n\"You can sort by columns name, height, hill_category, grid_reference suffixed by sort direction ASC(default) or DESC\""
+			},
+			"response": []
+		},
+		{
+			"name": "17. sortBy - 2 Columns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?sortBy=Height Desc, Name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "Height Desc, Name"
+						}
+					]
+				},
+				"description": "sortBy = \"Height Desc, Name\"\r\nSorts data by height in descending order and if the height is same then orders by Name in ascending order"
+			},
+			"response": []
+		},
+		{
+			"name": "18. No Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?minHeight=1400&maxHeight=1500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "minHeight",
+							"value": "1400"
+						},
+						{
+							"key": "maxHeight",
+							"value": "1500"
+						}
+					]
+				},
+				"description": "Returns a 404-Not Found error with the message\r\n\"No Data\""
+			},
+			"response": []
+		},
+		{
+			"name": "19. CSV file not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					]
+				},
+				"description": "Returns a 404-Not Found error with the message\r\n\"Could not find file 'C:\\Users\\rames\\Source\\Repos\\xDesign\\02. Solution\\Takehome.API\\bin\\Debug\\netcoreapp3.1\\Data\\munrotab_v6.2.csv'.\""
+			},
+			"response": []
+		},
+		{
+			"name": "20. rowsCount - 10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?rowsCount=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "rowsCount",
+							"value": "10"
+						}
+					]
+				},
+				"description": "rowsCount = 10"
+			},
+			"response": []
+		},
+		{
+			"name": "21. rowsCount - alphabetic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?rowsCount=x",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "rowsCount",
+							"value": "x"
+						}
+					]
+				},
+				"description": "rowsCount = x\r\n\r\nReturns a 400-Bad Request error\r\n\"The value 'x' is not valid for rowsCount.\""
+			},
+			"response": []
+		},
+		{
+			"name": "22. rowsCount - negative",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/munros?rowsCount=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"munros"
+					],
+					"query": [
+						{
+							"key": "rowsCount",
+							"value": "-1"
+						}
+					]
+				},
+				"description": "rowsCount = -1\r\n\r\nReturns a 400-Bad Request error with the message\r\n\"The field rowsCount must be greater than or equal to 0.\""
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
