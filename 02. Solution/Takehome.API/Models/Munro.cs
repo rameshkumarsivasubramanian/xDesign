@@ -3,8 +3,8 @@
     public enum Hill_Categories
     {
         None = 0,
-        Munro = 1,
-        MunroTop = 2,
+        Munro = 1,      //"MUN"
+        MunroTop = 2,   //"TOP"
         Both = 3
     }
 
